@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6153828592862379994}
   - component: {fileID: 6153828592862379995}
   - component: {fileID: -80501574166348788}
+  - component: {fileID: 9049991084793323371}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -33,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 86.279, y: -86.279}
-  m_SizeDelta: {x: 162.558, y: 162.558}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 162.55798, y: 162.558}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!222 &6153828592862379994
 CanvasRenderer:
@@ -88,3 +89,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203414fb8a70c9649937a1ebd94a1d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &9049991084793323371
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6153828592862379993}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
