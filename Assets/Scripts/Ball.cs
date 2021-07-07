@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    [SerializeField] float speed;
+
     public Vector3 direction = Vector3.forward - Vector3.up + Vector3.right;
 
     private void Start()
@@ -10,7 +12,7 @@ public class Ball : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(direction * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     // bounce ball upon hitting wall

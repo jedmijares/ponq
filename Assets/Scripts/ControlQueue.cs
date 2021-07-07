@@ -11,6 +11,8 @@ public class ControlQueue : MonoBehaviour
 
     [SerializeField] Paddle paddle;
 
+    [SerializeField] KeyCode key;
+
     public const int size = 5;
 
     // Start is called before the first frame update
@@ -28,7 +30,7 @@ public class ControlQueue : MonoBehaviour
         // {
         //     AddIcon();
         // }
-        if (Input.GetKeyDown(KeyCode.V))
+        if (Input.GetKeyDown(key))
         {
             UseIcon();
         }
