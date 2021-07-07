@@ -8,6 +8,16 @@ public class Paddle : MonoBehaviour
 
     public Vector3 targetPosition;
 
+    const float maxPosition = 2;
+
+    public enum PaddleDirection
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -18,7 +28,31 @@ public class Paddle : MonoBehaviour
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-        KeyboardMovement();
+        // KeyboardMovement();
+    }
+
+    public void Move(PaddleDirection dir)
+    {
+        switch (dir)
+        {
+            case PaddleDirection.Up:
+                targetPosition.y += 1;
+                targetPosition.y = Mathf.Clamp(targetPosition.y, -maxPosition, maxPosition);
+                break;
+            case PaddleDirection.Down:
+                targetPosition.y -= 1;
+                targetPosition.y = Mathf.Clamp(targetPosition.y, -maxPosition, maxPosition);
+                break;
+            case PaddleDirection.Right:
+                targetPosition.x += 1;
+                targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
+                break;
+            case PaddleDirection.Left:
+                targetPosition.x -= 1;
+                targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
+                break;
+        }
+
     }
 
     private void KeyboardMovement()

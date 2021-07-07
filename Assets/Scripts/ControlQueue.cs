@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ControlQueue : MonoBehaviour
 {
+    const float iconHeight = 200;
+
     [SerializeField] List<Icon> controlQueue;
     [SerializeField] Icon[] controlIcons;
+
+    [SerializeField] Paddle paddle;
 
     public const int size = 5;
 
@@ -33,11 +37,12 @@ public class ControlQueue : MonoBehaviour
     public void AddIcon()
     {
         int randomIndex = Random.Range(0, controlIcons.Length);
-        Icon newIcon = Instantiate(controlIcons[randomIndex], Vector3.zero, Quaternion.identity, this.transform);
+        Icon newIcon = Instantiate(controlIcons[randomIndex], this.transform);
+        newIcon.GetComponent<Move>().paddle = paddle;
         RectTransform rt = (RectTransform)newIcon.transform;
-        rt.SetAnchor(AnchorPresets.TopLeft);
-        newIcon.transform.localPosition = new Vector3(rt.rect.width, -1200, 0);
-        newIcon.MoveTo(new Vector2(rt.rect.width, -rt.rect.height * controlQueue.Count));
+        rt.SetAnchor(AnchorPresets.TopCenter);
+        newIcon.transform.localPosition = new Vector3(0, -1200, 0);
+        newIcon.MoveTo(new Vector2(0, -iconHeight * controlQueue.Count));
         controlQueue.Add(newIcon);
     }
 
@@ -55,7 +60,7 @@ public class ControlQueue : MonoBehaviour
             {
                 icon.StopAllCoroutines();
                 RectTransform rt = (RectTransform)icon.transform;
-                icon.MoveTo(new Vector2(rt.rect.width, -rt.rect.height * i));
+                icon.MoveTo(new Vector2(0, -iconHeight * i));
                 ++i;
             }
         }
