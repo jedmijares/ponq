@@ -13,23 +13,19 @@ public class ControlQueue : MonoBehaviour
 
     [SerializeField] KeyCode key;
 
-    public const int size = 5;
+    public const int SIZE = 10;
 
     // Start is called before the first frame update
     private void Start()
     {
         controlQueue = new List<Icon>();
-        for (int i = 0; i < 10; ++i)
+        for (int i = 0; i < SIZE; ++i)
             AddIcon();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        // if (Input.GetKeyDown(KeyCode.C))
-        // {
-        //     AddIcon();
-        // }
         if (Input.GetKeyDown(key))
         {
             UseIcon();
@@ -42,10 +38,10 @@ public class ControlQueue : MonoBehaviour
         Icon newIcon = Instantiate(controlIcons[randomIndex], this.transform);
         newIcon.key = key;
         newIcon.GetComponent<Move>().paddle = paddle;
-        RectTransform rt = (RectTransform)newIcon.transform;
-        rt.SetAnchor(AnchorPresets.TopCenter);
+
         newIcon.transform.localPosition = new Vector3(0, -1200, 0);
         newIcon.MoveTo(new Vector2(0, -iconHeight * controlQueue.Count));
+
         controlQueue.Add(newIcon);
     }
 
@@ -62,7 +58,6 @@ public class ControlQueue : MonoBehaviour
             foreach (Icon icon in controlQueue)
             {
                 icon.StopAllCoroutines();
-                RectTransform rt = (RectTransform)icon.transform;
                 icon.MoveTo(new Vector2(0, -iconHeight * i));
                 ++i;
             }

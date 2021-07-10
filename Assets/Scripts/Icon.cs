@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Icon : MonoBehaviour
 {
-    [SerializeField] const float moveSpeed = 800;
+    [SerializeField] const float moveSpeed = 1600;
 
     public KeyCode key;
 

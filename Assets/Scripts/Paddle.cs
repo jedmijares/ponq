@@ -6,8 +6,6 @@ public class Paddle : MonoBehaviour
 {
     public float speed;
 
-    public Vector3 targetPosition;
-
     const float maxPosition = 2;
 
     public enum PaddleDirection
@@ -36,7 +34,7 @@ public class Paddle : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        targetPosition = transform.position;
+        // targetPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -46,52 +44,52 @@ public class Paddle : MonoBehaviour
         // KeyboardMovement();
     }
 
-    public void MoveOneUnit(PaddleDirection dir)
-    {
-        switch (dir)
-        {
-            case PaddleDirection.Up:
-                targetPosition.y += 1;
-                targetPosition.y = Mathf.Clamp(targetPosition.y, -maxPosition, maxPosition);
-                break;
-            case PaddleDirection.Down:
-                targetPosition.y -= 1;
-                targetPosition.y = Mathf.Clamp(targetPosition.y, -maxPosition, maxPosition);
-                break;
-            case PaddleDirection.Right:
-                targetPosition.x += 1;
-                targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
-                break;
-            case PaddleDirection.Left:
-                targetPosition.x -= 1;
-                targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
-                break;
-        }
-    }
+    // public void MoveOneUnit(PaddleDirection dir)
+    // {
+    //     switch (dir)
+    //     {
+    //         case PaddleDirection.Up:
+    //             targetPosition.y += 1;
+    //             targetPosition.y = Mathf.Clamp(targetPosition.y, -maxPosition, maxPosition);
+    //             break;
+    //         case PaddleDirection.Down:
+    //             targetPosition.y -= 1;
+    //             targetPosition.y = Mathf.Clamp(targetPosition.y, -maxPosition, maxPosition);
+    //             break;
+    //         case PaddleDirection.Right:
+    //             targetPosition.x += 1;
+    //             targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
+    //             break;
+    //         case PaddleDirection.Left:
+    //             targetPosition.x -= 1;
+    //             targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
+    //             break;
+    //     }
+    // }
 
-    private void KeyboardMovement()
-    {
-        // Vector3 pos = transform.position;
+    // private void KeyboardMovement()
+    // {
+    //     // Vector3 pos = transform.position;
 
-        if (Input.GetKeyDown("w"))
-        {
-            // pos.y += speed * Time.deltaTime;
-            targetPosition.y += 1;
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            //pos.y -= speed * Time.deltaTime;
-            targetPosition.y -= 1;
-        }
-        if (Input.GetKeyDown("d"))
-        {
-            //pos.x += speed * Time.deltaTime;
-            targetPosition.x += 1;
-        }
-        if (Input.GetKeyDown("a"))
-        {
-            //pos.x -= speed * Time.deltaTime;
-            targetPosition.x -= 1;
-        }
-    }
+    //     if (Input.GetKeyDown("w"))
+    //     {
+    //         // pos.y += speed * Time.deltaTime;
+    //         targetPosition.y += 1;
+    //     }
+    //     if (Input.GetKeyDown("s"))
+    //     {
+    //         //pos.y -= speed * Time.deltaTime;
+    //         targetPosition.y -= 1;
+    //     }
+    //     if (Input.GetKeyDown("d"))
+    //     {
+    //         //pos.x += speed * Time.deltaTime;
+    //         targetPosition.x += 1;
+    //     }
+    //     if (Input.GetKeyDown("a"))
+    //     {
+    //         //pos.x -= speed * Time.deltaTime;
+    //         targetPosition.x -= 1;
+    //     }
+    // }
 }
