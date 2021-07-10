@@ -18,6 +18,21 @@ public class Paddle : MonoBehaviour
         Right
     }
 
+    public Vector2 paddlePosition
+    {
+        get
+        {
+            return transform.position;
+        }
+        set
+        {
+            float newX = Mathf.Clamp(value.x, -maxPosition, maxPosition);
+            float newY = Mathf.Clamp(value.y, -maxPosition, maxPosition);
+            transform.position = new Vector3(newX, newY, transform.position.z);
+        }
+    }
+
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -27,11 +42,11 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+        // transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
         // KeyboardMovement();
     }
 
-    public void Move(PaddleDirection dir)
+    public void MoveOneUnit(PaddleDirection dir)
     {
         switch (dir)
         {
@@ -52,7 +67,6 @@ public class Paddle : MonoBehaviour
                 targetPosition.x = Mathf.Clamp(targetPosition.x, -maxPosition, maxPosition);
                 break;
         }
-
     }
 
     private void KeyboardMovement()

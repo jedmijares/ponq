@@ -6,6 +6,8 @@ public class Icon : MonoBehaviour
 {
     [SerializeField] const float moveSpeed = 800;
 
+    public KeyCode key;
+
     // Start is called before the first frame update
     private void Start()
     {

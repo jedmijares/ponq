@@ -40,6 +40,7 @@ public class ControlQueue : MonoBehaviour
     {
         int randomIndex = Random.Range(0, controlIcons.Length);
         Icon newIcon = Instantiate(controlIcons[randomIndex], this.transform);
+        newIcon.key = key;
         newIcon.GetComponent<Move>().paddle = paddle;
         RectTransform rt = (RectTransform)newIcon.transform;
         rt.SetAnchor(AnchorPresets.TopCenter);
@@ -55,7 +56,7 @@ public class ControlQueue : MonoBehaviour
             Icon nextIcon = (Icon)controlQueue[0];
             nextIcon.Use();
             controlQueue.RemoveAt(0);
-            Destroy(nextIcon.gameObject);
+            // Destroy(nextIcon.gameObject);
 
             int i = 0;
             foreach (Icon icon in controlQueue)
