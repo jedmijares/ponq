@@ -15,6 +15,8 @@ public class ControlQueue : MonoBehaviour
 
     public const int SIZE = 10;
 
+    int lastIndex = -1;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -35,6 +37,11 @@ public class ControlQueue : MonoBehaviour
     public void AddIcon()
     {
         int randomIndex = Random.Range(0, controlIcons.Length);
+        while (randomIndex == lastIndex)
+        {
+            randomIndex = Random.Range(0, controlIcons.Length);
+        }
+        lastIndex = randomIndex;
         Icon newIcon = Instantiate(controlIcons[randomIndex], this.transform);
         newIcon.key = key;
         newIcon.GetComponent<Move>().paddle = paddle;
