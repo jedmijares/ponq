@@ -6,7 +6,8 @@ public class Paddle : MonoBehaviour
 {
     public float speed;
 
-    const float maxPosition = 2;
+    const float maxPositionY = 2;
+    const float maxPositionX = 3;
 
     public enum PaddleDirection
     {
@@ -24,8 +25,8 @@ public class Paddle : MonoBehaviour
         }
         set
         {
-            float newX = Mathf.Clamp(value.x, -maxPosition, maxPosition);
-            float newY = Mathf.Clamp(value.y, -maxPosition, maxPosition);
+            float newX = Mathf.Clamp(value.x, -maxPositionX, maxPositionX);
+            float newY = Mathf.Clamp(value.y, -maxPositionY, maxPositionY);
             transform.position = new Vector3(newX, newY, transform.position.z);
         }
     }

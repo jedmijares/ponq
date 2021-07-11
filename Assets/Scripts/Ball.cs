@@ -4,10 +4,19 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] float speed;
 
-    public Vector3 direction = Vector3.forward - Vector3.up + Vector3.right;
+    public Vector3 direction;
 
     private void Start()
     {
+        direction = 2 * Vector3.forward - Vector3.up - Vector3.right;
+        if (Random.value > 0.5)
+        {
+            direction += Vector3.up * 2;
+        }
+        if (Random.value > 0.5)
+        {
+            direction += Vector3.right * 2;
+        }
     }
 
     private void Update()
