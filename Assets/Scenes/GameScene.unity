@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 1815103040}
   - component: {fileID: 1815103041}
   m_Layer: 5
-  m_Name: Right
+  m_Name: RightQueue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1828,7 +1828,7 @@ GameObject:
   - component: {fileID: 1948759791}
   - component: {fileID: 1948759792}
   m_Layer: 5
-  m_Name: Left
+  m_Name: LeftQueue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
