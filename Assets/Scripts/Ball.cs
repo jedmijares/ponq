@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    [SerializeField] float speed;
+    [SerializeField] const float speed = 1;
 
     public Vector3 direction;
+
+    [SerializeField] Ball nextBall;
 
     private void Start()
     {
@@ -35,6 +37,14 @@ public class Ball : MonoBehaviour
             flipper.z = Mathf.Abs(flipper.z);
             flipper = (-2 * flipper) + Vector3.one;
             direction = Vector3.Scale(flipper, direction);
+        }
+        else if (other.tag == "Respawn")
+        {
+            Debug.Log("miss");
+            Destroy(gameObject, 2.0f);
+            // this.transform.position = Vector3.zero;
+            // Start();
+            Instantiate(nextBall, Vector3.zero, Quaternion.identity);
         }
     }
 }
