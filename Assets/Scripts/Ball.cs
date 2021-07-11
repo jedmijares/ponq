@@ -29,7 +29,7 @@ public class Ball : MonoBehaviour
     // bounce ball upon hitting wall
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Wall")
+        if (other.tag == "Wall" || other.tag == "Paddle")
         {
             Vector3 flipper = other.transform.forward;
             flipper.x = Mathf.Abs(flipper.x);
@@ -37,6 +37,10 @@ public class Ball : MonoBehaviour
             flipper.z = Mathf.Abs(flipper.z);
             flipper = (-2 * flipper) + Vector3.one;
             direction = Vector3.Scale(flipper, direction);
+            if (other.tag == "Paddle")
+            {
+                gameObject.GetComponent<ScoreTracker>().AddPoints(1);
+            }
         }
         else if (other.tag == "Respawn")
         {
@@ -44,7 +48,8 @@ public class Ball : MonoBehaviour
             Destroy(gameObject, 2.0f);
             // this.transform.position = Vector3.zero;
             // Start();
-            Instantiate(nextBall, Vector3.zero, Quaternion.identity);
+            Ball newBall = Instantiate(nextBall, Vector3.zero, Quaternion.identity);
+            newBall.GetComponent<ScoreTracker>().scoreText = gameObject.GetComponent<ScoreTracker>().scoreText;
         }
     }
 }
